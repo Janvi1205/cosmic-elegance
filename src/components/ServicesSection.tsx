@@ -7,6 +7,8 @@ import familyImg from "@/assets/service-family.webp";
 import husbandWifeImg from "@/assets/husband-wife-problem.webp";
 import careerImg from "@/assets/career.webp";
 import vashikaranImg from "@/assets/extra-marital.webp";
+import foreignTravelImg from "@/assets/serv1.png";
+import prImmigrationImg from "@/assets/serv2.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +19,8 @@ const services = [
   { title: "Family Problem Solution", desc: "Resolve family disputes, bring peace, and restore harmony in your household.", img: familyImg },
   { title: "Husband Wife Problem", desc: "Resolve disputes, rebuild trust, and bring harmony back to your marriage.", img: husbandWifeImg },
   { title: "Career & Business", desc: "Unlock professional growth, financial stability, and success aligned with your stars.", img: careerImg },
+  { title: "Foreign Travel & Visa Problems", desc: "Astrological guidance to resolve delays and obstacles in your foreign travel and visa applications.", img: foreignTravelImg },
+  { title: "PR & Immigration Issues", desc: "Expert solutions to overcome hurdles in permanent residency and immigration processes.", img: prImmigrationImg },
 ];
 
 const ServicesSection = () => {

@@ -32,7 +32,9 @@ const servicesList = [
   { title: "Love Specialist Astrologer", detail: "Expert guidance and remedies to ensure a successful, lasting, and happy love life." },
   { title: "There Is A Sudden Problem In Your Business Or Job", detail: "Identify the hidden root cause of sudden downfalls and find quick, proven remedies." },
   { title: "Verified Astrologer In India", detail: "Trusted, genuine, highly experienced, and certified astrological services." },
-  { title: "Your Love Has Gone Away From You?", detail: "Bring back lost love, rekindle the romance, and strengthen your bond." }
+  { title: "Your Love Has Gone Away From You?", detail: "Bring back lost love, rekindle the romance, and strengthen your bond." },
+  { title: "Foreign Travel & Overseas Settlement", detail: "Astrological solutions for smooth visa processing and foreign settlement." },
+  { title: "PR (Permanent Residency) & Immigration Consultation", detail: "Expert guidance to resolve hurdles in permanent residency and immigration." }
 ];
 
 const FeaturedSection = () => {

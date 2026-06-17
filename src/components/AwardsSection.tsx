@@ -7,6 +7,7 @@ import award3 from "@/assets/award3.webp";
 import award4 from "@/assets/award4.webp";
 import award5 from "@/assets/award6.webp";
 import award6 from "@/assets/award7.jpeg";
+import award8 from "@/assets/award8.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ const awards = [
   { title: "Award", img: award4 },
   { title: "Certificate", img: award5 },
   { title: "Certificate", img: award6 },
+  { title: "Certificate", img: award8 },
 ];
 
 const AwardsSection = () => {
