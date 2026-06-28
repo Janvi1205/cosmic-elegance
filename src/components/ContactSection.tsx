@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { trackConversion } from "@/lib/googleAds";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,12 +13,12 @@ const contactInfo = [
 ];
 
 const services = [
-  "Love Problem Solution",
-  "Career & Business",
-  "Marriage Solution",
-  "Family Issues",
-  "Extra Marital Affair Solution",
-  "Health & Wellness",
+  "Love Problem Consultation",
+  "Career & Business Guidance",
+  "Marriage Guidance",
+  "Family Harmony Consultation",
+  "Relationship Consultation",
+  "Spiritual Well-being Guidance",
   "Other Consultation"
 ];
 
@@ -37,6 +38,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackConversion();
     const msg = encodeURIComponent(`Hello Astrologer Sanjeev Sharmaji, I would like to book a consultation.\n\nName: ${form.name}\nService: ${form.service}\nMessage: ${form.message}`);
     window.open(`https://wa.me/919988174274?text=${msg}`, "_blank");
   };
@@ -158,6 +160,9 @@ const ContactSection = () => {
                 </button>
                 <p className="text-center font-body text-[10px] text-secondary/40 mt-4 tracking-wide">
                   By submitting, you'll be redirected to WhatsApp to confirm your booking.
+                </p>
+                <p className="text-center font-body text-[9px] text-secondary/50 mt-3 border-t border-black/5 pt-3 leading-relaxed">
+                  <strong>Disclaimer:</strong> Astrology consultations are provided for spiritual guidance and personal insight only. Results may vary from person to person. No specific outcomes or guarantees are promised.
                 </p>
               </div>
             </form>

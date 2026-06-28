@@ -73,7 +73,7 @@ const HeroSection = () => {
           <p
             className="hero-sub font-body text-cream/70 text-base md:text-lg max-w-lg mb-10 leading-relaxed opacity-0"
           >
-            Specialized guidance for love marriage, inter-caste marriage, relationship problems, and extra-marital affair solutions. Trusted by thousands of happy couples across India  </p>
+            Specialized guidance for love marriage, inter-caste marriage, relationship problems, and family harmony. Trusted by many clients across India  </p>
 
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-12">
             <a

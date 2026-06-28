@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, ArrowUp, Heart } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const quickLinks = ["Home", "About", "Services", "Love Solutions", "Testimonials", "Contact"];
 const services = [
@@ -6,13 +7,21 @@ const services = [
   "Career & Business in Chandigarh",
   "Marriage Solution in Chandigarh",
   "Family Issues in Chandigarh",
-  "Extra Marital Affair Solution in Chandigarh",
+  "Relationship Consultation in Chandigarh",
   "Horoscope Matching in Chandigarh"
 ];
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollTo = (id: string) => {
-    document.getElementById(id.toLowerCase().replace(/\s/g, "-"))?.scrollIntoView({ behavior: "smooth" });
+    const targetId = id.toLowerCase().replace(/\s/g, "-");
+    if (location.pathname === "/") {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${targetId}`);
+    }
   };
 
   const scrollToTop = () => {
@@ -101,8 +110,9 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Astrologer Sanjeev Sharmaji. Crafted with <Heart size={12} className="text-gold fill-gold" />
             </p>
             <div className="flex items-center gap-8 text-xs text-cream/30 font-body">
-              <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
+              <Link to="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-gold transition-colors">Terms of Service</Link>
+              <Link to="/disclaimer" className="hover:text-gold transition-colors">Disclaimer</Link>
               <button 
                 onClick={scrollToTop} 
                 className="w-10 h-10 rounded-full gold-gradient text-primary-foreground flex items-center justify-center hover:scale-110 transition-transform shadow-[var(--shadow-gold)]"

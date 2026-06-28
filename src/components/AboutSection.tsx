@@ -8,8 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { value: "25+", label: "Years Experience", num: 25, suffix: "+" },
-  { value: "10000+", label: "Happy Clients", num: 10000, suffix: "+" },
-  { value: "100%", label: "Satisfaction", num: 100, suffix: "%" },
+  { value: "10000+", label: "Consultations", num: 10000, suffix: "+" },
+  { value: "5000+", label: "Clients Guided", num: 5000, suffix: "+" },
 ];
 
 const AboutSection = () => {
@@ -79,9 +79,9 @@ const AboutSection = () => {
             Reuniting Hearts & Building  <span className="text-gold-gradient">Strong Relationships</span>
           </h2>
           <p className="font-body text-muted-foreground leading-relaxed mb-4">
-            With years of experience in Vedic astrology, I have successfully helped many individuals and couples resolve extra-marital affairs, overcome relationship challenges, achieve successful love and inter-caste marriages, and gain family acceptance through accurate astrological guidance and effective remedies.</p>
+            With years of experience in Vedic astrology, I provide guidance for individuals and couples facing relationship challenges, love marriage choices, and family dynamics, offering astrological perspectives and traditional remedies.</p>
           <p className="font-body text-muted-foreground leading-relaxed mb-8">
-            I also specialize in love marriages and inter-caste marriages, helping countless couples gain family acceptance and convince their parents with confidence and respect. Many of the couples I have guided are now living happy and successful married lives, enjoying strong relationships and family support. </p>
+            I specialize in astrological consultations for love marriage and inter-caste marriage guidance, assisting couples in navigating family discussions with confidence and mutual respect. My focus is on helping clients understand their relationship compatibility and seek harmony using astrological principles.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {stats.map((s) => (
               <div key={s.label} className="about-stat glass-card p-3 md:p-4 text-center rounded-2xl opacity-0">

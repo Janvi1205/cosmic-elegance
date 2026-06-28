@@ -13,14 +13,14 @@ import prImmigrationImg from "@/assets/serv2.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { title: "Love Problem Solution", desc: "Overcome heartbreak, misunderstandings, and relationship obstacles with powerful remedies.", img: loveProblemImg },
-  { title: "Love Marriage Specialist", desc: "Get expert guidance and astrological support for inter-caste and love marriages.", img: loveMarriageImg },
-  { title: "Extra Marital Affair Solution", desc: "Expert guidance to overcome infidelity issues and restore trust in your relationship.", img: vashikaranImg },
-  { title: "Family Problem Solution", desc: "Resolve family disputes, bring peace, and restore harmony in your household.", img: familyImg },
-  { title: "Husband Wife Problem", desc: "Resolve disputes, rebuild trust, and bring harmony back to your marriage.", img: husbandWifeImg },
-  { title: "Career & Business", desc: "Unlock professional growth, financial stability, and success aligned with your stars.", img: careerImg },
-  { title: "Foreign Travel & Visa Problems", desc: "Astrological guidance to resolve delays and obstacles in your foreign travel and visa applications.", img: foreignTravelImg },
-  { title: "PR & Immigration Issues", desc: "Expert solutions to overcome hurdles in permanent residency and immigration processes.", img: prImmigrationImg },
+  { title: "Love Problem Solution", desc: "Personalized Vedic astrology consultation for relationship concerns and guidance.", img: loveProblemImg },
+  { title: "Love Marriage Specialist", desc: "Personalized Vedic astrology consultation for love and inter-caste marriage guidance.", img: loveMarriageImg },
+  { title: "Relationship Consultation", desc: "Personalized astrological consultation for relationship concerns and emotional guidance.", img: vashikaranImg },
+  { title: "Family Problem Solution", desc: "Vedic astrology consultation for family harmony and personal guidance.", img: familyImg },
+  { title: "Husband Wife Problem", desc: "Personalized astrological guidance for marital and relationship concerns.", img: husbandWifeImg },
+  { title: "Career & Business", desc: "Astrology consultation for career planning, business decisions, and professional guidance.", img: careerImg },
+  { title: "Foreign Travel & Visa Problems", desc: "Vedic astrology consultation related to foreign travel and educational or career decisions.", img: foreignTravelImg },
+  { title: "PR & Immigration Issues", desc: "Vedic astrology consultation for immigration and relocation-related guidance.", img: prImmigrationImg },
 ];
 
 const ServicesSection = () => {

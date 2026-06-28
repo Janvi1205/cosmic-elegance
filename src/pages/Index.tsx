@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FloatingButtons from "@/components/FloatingButtons";
@@ -23,29 +24,47 @@ const SectionLoader = () => (
   </div>
 );
 
-const Index = () => (
-  <div className="min-h-screen bg-background">
-    <Navbar />
-    <HeroSection />
-    
-    <Suspense fallback={<SectionLoader />}>
-      <SectionDivider />
-      <AboutSection />
-      <SectionDivider />
-      <ServicesSection />
-      <SectionDivider />
-      <AwardsSection />
-      <SectionDivider />
-      <FeaturedSection />
-      <SectionDivider />
-      <TestimonialsSection />
-      <SectionDivider />
-      <ContactSection />
-      <Footer />
-    </Suspense>
-    
-    <FloatingButtons />
-  </div>
-);
+const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace("#", "");
+      const el = document.getElementById(targetId);
+      if (el) {
+        // Wait a short duration for lazy sections to finish loading
+        const timer = setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [location.hash]);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      
+      <Suspense fallback={<SectionLoader />}>
+        <SectionDivider />
+        <AboutSection />
+        <SectionDivider />
+        <ServicesSection />
+        <SectionDivider />
+        <AwardsSection />
+        <SectionDivider />
+        <FeaturedSection />
+        <SectionDivider />
+        <TestimonialsSection />
+        <SectionDivider />
+        <ContactSection />
+        <Footer />
+      </Suspense>
+      
+      <FloatingButtons />
+    </div>
+  );
+};
 
 export default Index;

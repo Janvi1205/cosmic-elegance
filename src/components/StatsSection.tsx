@@ -6,9 +6,9 @@ import { Star, Users, Award, Calendar } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const counters = [
-  { icon: Calendar, value: "10+", label: "Years of Experience" },
-  { icon: Users, value: "5000+", label: "Happy Clients" },
-  { icon: Star, value: "4.9/5", label: "Average Rating" },
+  { icon: Calendar, value: "25+", label: "Years of Experience" },
+  { icon: Users, value: "10000+", label: "Consultations" },
+  { icon: Star, value: "4.9/5", label: "Client Rating" },
   { icon: Award, value: "15+", label: "Awards Won" },
 ];
 

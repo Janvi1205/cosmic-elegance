@@ -6,11 +6,11 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const reviews = [
-  { name: "Priya Sharma", subtitle: "RELATIONSHIP HEALING", text: "Astrologer Sanjeev Sharmaji's predictions were incredibly accurate. He helped me reunite with my partner when all hope seemed lost. Forever grateful!", rating: 5 },
-  { name: "Rahul Verma", subtitle: "CAREER GROWTH", text: "I was facing severe career issues. After following Astrologer Sanjeev Sharmaji's remedies, I got promoted within 3 months. Truly life-changing guidance.", rating: 5 },
-  { name: "Anita Patel", subtitle: "MARRIAGE HARMONY", text: "My marriage was on the verge of collapse. Astrologer Sanjeev Sharmaji's advice and remedies brought peace and love back into our home.", rating: 5 },
-  { name: "Vikash Kumar", subtitle: "TRUSTED ASTROLOGER", text: "Best astrologer I have ever consulted. Very patient, understanding, and the remedies actually work. Highly recommended!", rating: 5 },
-  { name: "Sunita Devi", subtitle: "LOVE MARRIAGE SOLUTION", text: "Astrologer Sanjeev Sharmaji helped resolve my love marriage issues with family. Today we are happily married. Thank you so much!", rating: 5 },
+  { name: "Priya Sharma", subtitle: "RELATIONSHIP HEALING", text: "Astrologer Sanjeev Sharmaji's guidance was incredibly insightful. His perspective helped me understand my relationship dynamics during a difficult time. Forever grateful!", rating: 5 },
+  { name: "Rahul Verma", subtitle: "CAREER GROWTH", text: "I was facing career uncertainty. Astrologer Sanjeev Sharmaji's advice and guidance gave me the clarity and confidence to make strategic professional decisions. Truly valuable guidance.", rating: 5 },
+  { name: "Anita Patel", subtitle: "MARRIAGE HARMONY", text: "We were facing complex marital challenges. Astrologer Sanjeev Sharmaji's consultation helped us understand our astrological compatibility and work towards harmony in our relationship.", rating: 5 },
+  { name: "Vikash Kumar", subtitle: "TRUSTED ASTROLOGER", text: "Best astrologer I have ever consulted. Very patient, understanding, and the advice is highly practical. Highly recommended!", rating: 5 },
+  { name: "Sunita Devi", subtitle: "LOVE MARRIAGE GUIDANCE", text: "Astrologer Sanjeev Sharmaji provided great support and advice regarding our family relationship concerns. His guidance was extremely comforting. Thank you so much!", rating: 5 },
 ];
 
 const TestimonialsSection = () => {

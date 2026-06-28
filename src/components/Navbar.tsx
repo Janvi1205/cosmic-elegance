@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = ["Home", "About", "Services", "Love Solutions", "Testimonials", "Contact"];
 
@@ -7,6 +8,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -16,8 +19,13 @@ const Navbar = () => {
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
-    const el = document.getElementById(id.toLowerCase().replace(/\s/g, "-"));
-    el?.scrollIntoView({ behavior: "smooth" });
+    const targetId = id.toLowerCase().replace(/\s/g, "-");
+    if (location.pathname === "/") {
+      const el = document.getElementById(targetId);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${targetId}`);
+    }
   };
 
   const textColor = scrolled ? "text-foreground/70 hover:text-primary" : "text-cream/70 hover:text-cream";
