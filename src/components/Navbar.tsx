@@ -1,15 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const navLinks = ["Home", "About", "Services", "Love Solutions", "Testimonials", "Contact"];
+interface NavItem {
+  label: string;
+  to: string;
+}
+
+const navLinks: NavItem[] = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Testimonials", to: "/testimonials" },
+  { label: "Contact", to: "/contact" },
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -17,18 +27,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
+  // Close mobile menu on route change
+  useEffect(() => {
     setMobileOpen(false);
-    const targetId = id.toLowerCase().replace(/\s/g, "-");
-    if (location.pathname === "/") {
-      const el = document.getElementById(targetId);
-      el?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate(`/#${targetId}`);
-    }
-  };
+  }, [location.pathname]);
+
+  const isActive = (to: string) => location.pathname === to;
 
   const textColor = scrolled ? "text-foreground/70 hover:text-primary" : "text-cream/70 hover:text-cream";
+  const activeColor = scrolled ? "text-primary font-semibold" : "text-cream font-semibold";
   const logoColor = scrolled ? "text-secondary" : "text-cream";
 
   return (
@@ -39,28 +46,30 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <button onClick={() => scrollTo("home")} className={`font-heading text-2xl font-bold ${logoColor} transition-colors`}>
+        <Link to="/" className={`font-heading text-2xl font-bold ${logoColor} transition-colors`}>
           Astrologer <span className="text-gold-gradient">Sanjeev Sharmaji</span>
-        </button>
+        </Link>
 
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <li key={link}>
-              <button
-                onClick={() => scrollTo(link)}
-                className={`font-body text-sm font-medium ${textColor} transition-colors duration-200`}
+            <li key={link.label}>
+              <Link
+                to={link.to}
+                className={`font-body text-sm font-medium transition-colors duration-200 ${
+                  isActive(link.to) ? activeColor : textColor
+                }`}
               >
-                {link}
-              </button>
+                {link.label}
+              </Link>
             </li>
           ))}
           <li>
-            <button
-              onClick={() => scrollTo("contact")}
+            <Link
+              to="/contact"
               className="gold-gradient text-primary-foreground font-body text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
             >
               Book Now
-            </button>
+            </Link>
           </li>
         </ul>
 
@@ -72,20 +81,22 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border px-6 py-6 space-y-4">
           {navLinks.map((link) => (
-            <button
-              key={link}
-              onClick={() => scrollTo(link)}
-              className="block w-full text-left font-body text-base text-foreground/80 hover:text-primary transition-colors"
+            <Link
+              key={link.label}
+              to={link.to}
+              className={`block w-full text-left font-body text-base transition-colors ${
+                isActive(link.to) ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"
+              }`}
             >
-              {link}
-            </button>
+              {link.label}
+            </Link>
           ))}
-          <button
-            onClick={() => scrollTo("contact")}
-            className="gold-gradient text-primary-foreground font-body text-sm font-semibold px-5 py-2.5 rounded-full w-full"
+          <Link
+            to="/contact"
+            className="gold-gradient text-primary-foreground font-body text-sm font-semibold px-5 py-2.5 rounded-full w-full block text-center"
           >
             Book Now
-          </button>
+          </Link>
         </div>
       )}
     </nav>

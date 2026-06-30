@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  build: {
+    // Target es2019 for react-snap compatibility (its bundled Chromium ~v77
+    // doesn't support optional chaining ?. or nullish coalescing ??)
+    target: "es2019",
+  },
   plugins: [react()].filter(Boolean),
   resolve: {
     alias: {

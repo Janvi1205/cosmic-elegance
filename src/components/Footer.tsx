@@ -1,29 +1,24 @@
-import { Instagram, Facebook, Twitter, Phone, Mail, MapPin, ArrowUp, Heart } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Phone, Mail, MapPin, ArrowUp, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const quickLinks = ["Home", "About", "Services", "Love Solutions", "Testimonials", "Contact"];
-const services = [
+const quickLinks = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Testimonials", to: "/testimonials" },
+  { label: "Contact", to: "/contact" },
+];
+
+const serviceAreas = [
   "Love Problem Solution in Chandigarh",
   "Career & Business in Chandigarh",
   "Marriage Solution in Chandigarh",
   "Family Issues in Chandigarh",
   "Relationship Consultation in Chandigarh",
-  "Horoscope Matching in Chandigarh"
+  "Horoscope Matching in Chandigarh",
 ];
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const scrollTo = (id: string) => {
-    const targetId = id.toLowerCase().replace(/\s/g, "-");
-    if (location.pathname === "/") {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate(`/#${targetId}`);
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -38,13 +33,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand Info */}
           <div className="space-y-6">
-            <button onClick={scrollToTop} className="font-heading text-2xl font-bold text-cream block">
+            <Link to="/" className="font-heading text-2xl font-bold text-cream block">
               Astrologer <span className="text-gold-gradient">Sanjeev Sharmaji</span>
-            </button>
+            </Link>
             <p className="font-body text-sm text-cream/60 leading-relaxed max-w-xs">
-              Empowering lives through the ancient wisdom of Vedic astrology. Trusted by thousands for clarity in love, career, and life’s journey.
+              Empowering lives through the ancient wisdom of Vedic astrology. Trusted by thousands for clarity in love, career, and life's journey.
             </p>
-
           </div>
 
           {/* Quick Links */}
@@ -52,10 +46,10 @@ const Footer = () => {
             <h4 className="font-heading text-lg font-bold text-gold mb-8">Quick Links</h4>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
-                <li key={link}>
-                  <button onClick={() => scrollTo(link)} className="font-body text-sm text-cream/60 hover:text-gold hover:translate-x-1 transition-all">
-                    {link}
-                  </button>
+                <li key={link.label}>
+                  <Link to={link.to} className="font-body text-sm text-cream/60 hover:text-gold hover:translate-x-1 transition-all">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -65,11 +59,11 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-bold text-gold mb-8">Service Areas</h4>
             <ul className="space-y-4">
-              {services.map((item) => (
+              {serviceAreas.map((item) => (
                 <li key={item}>
-                  <button onClick={() => scrollTo("services")} className="font-body text-sm text-cream/60 hover:text-gold hover:translate-x-1 transition-all text-left">
+                  <Link to="/services" className="font-body text-sm text-cream/60 hover:text-gold hover:translate-x-1 transition-all text-left">
                     {item}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -109,12 +103,16 @@ const Footer = () => {
             <p className="font-body text-xs text-cream/30 flex items-center gap-1">
               &copy; {new Date().getFullYear()} Astrologer Sanjeev Sharmaji. Crafted with <Heart size={12} className="text-gold fill-gold" />
             </p>
-            <div className="flex items-center gap-8 text-xs text-cream/30 font-body">
+            <div className="flex items-center gap-8 text-xs text-cream/30 font-body flex-wrap justify-center">
               <Link to="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="hover:text-gold transition-colors">Terms of Service</Link>
+              <Link to="/terms-and-conditions" className="hover:text-gold transition-colors">Terms & Conditions</Link>
               <Link to="/disclaimer" className="hover:text-gold transition-colors">Disclaimer</Link>
-              <button 
-                onClick={scrollToTop} 
+              <Link to="/about" className="hover:text-gold transition-colors">About</Link>
+              <Link to="/services" className="hover:text-gold transition-colors">Services</Link>
+              <Link to="/testimonials" className="hover:text-gold transition-colors">Testimonials</Link>
+              <Link to="/contact" className="hover:text-gold transition-colors">Contact</Link>
+              <button
+                onClick={scrollToTop}
                 className="w-10 h-10 rounded-full gold-gradient text-primary-foreground flex items-center justify-center hover:scale-110 transition-transform shadow-[var(--shadow-gold)]"
                 aria-label="Scroll to top"
               >

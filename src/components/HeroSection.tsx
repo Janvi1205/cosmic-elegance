@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg1.webp";
 import { Phone, MessageCircle } from "lucide-react";
 
@@ -76,12 +77,12 @@ const HeroSection = () => {
             Specialized guidance for love marriage, inter-caste marriage, relationship problems, and family harmony. Trusted by many clients across India  </p>
 
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-12">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="hero-btn gold-gradient text-primary-foreground font-body font-semibold px-8 py-4 rounded-full inline-flex items-center justify-center gap-2.5 hover:opacity-90 transition-opacity shadow-[var(--shadow-gold)] w-full sm:w-auto opacity-0"
             >
               <Phone size={18} /> Book now
-            </a>
+            </Link>
             <a
               href="https://wa.me/919988174274?text=Hello%20Astrologer%20Sanjeev%20Sharmaji,%20I%20would%20like%20to%20book%20a%20consultation."
               target="_blank"

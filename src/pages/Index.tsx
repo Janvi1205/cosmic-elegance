@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FloatingButtons from "@/components/FloatingButtons";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 // Lazy load all sections below the fold
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -43,6 +44,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Astrologer Sanjeev Sharmaji — Best Vedic Astrologer in Chandigarh"
+        description="Personalized Vedic astrology guidance for love, marriage, career, and life's toughest challenges. 25+ years experience, 10,000+ consultations. Book now with Astrologer Sanjeev Sharmaji."
+        canonicalUrl="/"
+      />
       <Navbar />
       <HeroSection />
       
