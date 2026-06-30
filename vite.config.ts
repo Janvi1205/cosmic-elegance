@@ -15,6 +15,21 @@ export default defineConfig(({ mode }) => ({
     // Target es2019 for react-snap compatibility (its bundled Chromium ~v77
     // doesn't support optional chaining ?. or nullish coalescing ??)
     target: "es2019",
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("gsap")) {
+              return "vendor-gsap";
+            }
+            if (id.includes("lucide")) {
+              return "vendor-lucide";
+            }
+            return "vendor";
+          }
+        },
+      },
+    },
   },
   plugins: [react()].filter(Boolean),
   resolve: {
